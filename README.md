@@ -1,1 +1,1 @@
-# Hibernate
+# Hibernate_classrom project
