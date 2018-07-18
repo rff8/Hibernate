@@ -1,4 +1,4 @@
-package main.java;
+package hibernate.first;
 
 public class Lesson {
     private Discipline discipline;

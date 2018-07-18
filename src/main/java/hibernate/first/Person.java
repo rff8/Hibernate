@@ -1,6 +1,6 @@
-package main.java;
+package hibernate.first;
 
-public class Person {
+public abstract class Person {
     private int age;
     private String firstName;
     private String secondName;
