@@ -13,7 +13,7 @@ import java.util.List;
 
 import static org.testng.Assert.assertEquals;
 
-public class PersistentTest {
+public class LectorTest {
     SessionFactory factory;
 
     @BeforeClass
@@ -27,28 +27,27 @@ public class PersistentTest {
     }
 
     @Test
-    public void savePupil() {
-        Pupil pupil = new Pupil();
-        pupil.setFirstName("Ivan");
-        pupil.setSecondName("Smirnov");
-        pupil.setAge(10);
-        pupil.setGrade(5);
+    public void saveLector() {
+        Lector lector = new Lector();
+        lector.setFirstName("Viacheslav");
+        lector.setSecondName("Kolobin");
+        lector.setAge(45);
 
         try (Session session = factory.openSession()) {
             Transaction tx = session.beginTransaction();
-            session.persist(pupil);
+            session.save(lector);
             tx.commit();
         }
     }
 
-    @Test(dependsOnMethods = "savePupil")
-    public void readPupil() {
+    @Test(dependsOnMethods = "saveLector")
+    public void readLector() {
         try (Session session = factory.openSession()) {
-            List<Pupil> list = session.createQuery("from Pupil", Pupil.class).list();
+            List<Lector> list = session.createQuery("from Lector", Lector.class).list();
 
             assertEquals(list.size(), 1);
-            for (Pupil p : list) {
-                System.out.println(p);
+            for (Lector l : list) {
+                System.out.println(l);
             }
         }
     }
