@@ -6,15 +6,19 @@
     <session-factory>
         <!--  Database connection settings  -->
         <property name="connection.driver_class">org.h2.Driver</property>
-        <property name="connection.url">jdbc:h2:./DB</property>
+        <property name="connection.url">jdbc:h2:./src/main/resources/DB</property>
         <property name="connection.username">sa</property>
-        <property name="connection.password"/>
+        <property name="connection.password">sa</property>
         <property name="dialect">org.hibernate.dialect.H2Dialect</property>
         <!--  Echo all executed SQL to stdout  -->
         <property name="show_sql">true</property>
         <!--  Drop and re-create the database schema on startup  -->
         <property name="hbm2ddl.auto">create</property>
+        <mapping class="hibernate.first.Person"/>
         <mapping class="hibernate.first.Pupil"/>
+        <mapping class="hibernate.first.Lector"/>
+        <mapping class="hibernate.first.Lesson"/>
+        <mapping class="hibernate.first.Discipline"/>
     </session-factory>
 
 </hibernate-configuration>
