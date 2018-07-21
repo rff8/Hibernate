@@ -1,8 +1,25 @@
 package hibernate.first;
 
+import javax.persistence.*;
+
+@Entity
 public class Discipline {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    @Column
     private String name;
+
     private Lector[] lectors;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Lector[] getLectors() {
         return lectors;

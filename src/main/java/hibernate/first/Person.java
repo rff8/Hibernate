@@ -1,9 +1,29 @@
 package hibernate.first;
 
+import javax.persistence.*;
+
+@Entity
 public abstract class Person {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    @Column
     private int age;
+
+    @Column
     private String firstName;
+
+    @Column
     private String secondName;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public int getAge() {
         return age;
