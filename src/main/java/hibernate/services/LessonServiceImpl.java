@@ -16,18 +16,42 @@ public class LessonServiceImpl implements LessonService{
 
 
     @Override
-    public void createNewLesson(Discipline discipline, Lector lector, Set<Pupil> pupils) {
+    public Lesson createNewLesson(Discipline discipline, Lector lector, Set<Pupil> pupils) {
         Lesson lesson = new Lesson(discipline, lector);
         lesson.setPupils(pupils);
+        return lesson;
     }
 
     @Override
-    public void addPupil(Pupil pupil) {
-
+    public Lesson addPupil(Lesson lesson, Pupil pupil) {
+        if (checkPupil(lesson, pupil)) {
+            return lesson;
+        } else {
+            Set<Pupil> newSet = lesson.getPupils();
+            newSet.add(pupil);
+            lesson.setPupils(newSet);
+            return lesson;
+        }
     }
 
     @Override
-    public void deletePupil(Pupil pupil) {
+    public Lesson deletePupil(Lesson lesson, Pupil pupil) {
+        if (checkPupil(lesson, pupil)) {
+            Set<Pupil> newSet = lesson.getPupils();
+            newSet.remove(pupil);
+           lesson.setPupils(newSet);
+            return lesson;
+        } else {
+            return lesson;
+        }
+    }
 
+    @Override
+    public boolean checkPupil(Lesson lesson, Pupil pupil) {
+        if(lesson.getPupils().contains(pupil)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

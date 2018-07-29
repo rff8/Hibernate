@@ -17,8 +17,8 @@
         <mapping class="hibernate.first.Person"/>
         <mapping class="hibernate.first.Pupil"/>
         <mapping class="hibernate.first.Lector"/>
-        <mapping class="hibernate.first.Lesson"/>
-        <mapping class="hibernate.first.Discipline"/>
+        <!-- <mapping class="hibernate.first.Lesson"/> -->
+        <!-- <mapping class="hibernate.first.Discipline"/> -->
     </session-factory>
 
 </hibernate-configuration>
