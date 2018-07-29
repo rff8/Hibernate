@@ -1,17 +1,21 @@
 package hibernate.first;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
-public class Pupil extends Person{
+public class Pupil extends Person {
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
     @Column
     private int grade;
+    private Set<Lesson> lessons;
 
-    private Lesson[] lessons;
+    public Pupil(String firstName, String secondName, int age, int grade) {
+        super(firstName, secondName, age);
+        this.grade = grade;
+    }
 
     @Override
     public String toString() {
@@ -26,19 +30,15 @@ public class Pupil extends Person{
         this.id = id;
     }
 
-    public int getGrade() {
-        return grade;
-    }
+    public int getGrade() {return grade;}
 
-    public void setGrade(int grade) {
-        this.grade = grade;
-    }
+    public void setGrade(int grade) {this.grade = grade;}
 
-    public Lesson[] getLessons() {
+    public Set<Lesson> getLessons() {
         return lessons;
     }
 
-    public void setLessons(Lesson[] lessons) {
+    public void setLessons(Set<Lesson> lessons) {
         this.lessons = lessons;
     }
 }

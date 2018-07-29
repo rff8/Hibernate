@@ -4,14 +4,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Set;
 
 @Entity
 public class Lector extends Person {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private Set<Discipline> disciplines;
 
-    private Discipline[] disciplines;
+    public Lector(String firstName, String secondName, int age) {
+        super(firstName, secondName, age);
+    }
 
     @Override
     public String toString() {
@@ -26,11 +30,11 @@ public class Lector extends Person {
         this.id = id;
     }
 
-    public Discipline[] getDisciplines() {
+    public Set<Discipline> getDisciplines() {
         return disciplines;
     }
 
-    public void setDisciplines(Discipline[] disciplines) {
+    public void setDisciplines(Set<Discipline> disciplines) {
         this.disciplines = disciplines;
     }
 }

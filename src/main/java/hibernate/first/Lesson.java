@@ -4,21 +4,21 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Set;
 
 @Entity
 public class Lesson {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-
     private Discipline discipline;
-
-
     private Lector lector;
+    private Set<Pupil> pupils;
 
-
-    private Pupil[] pupils;
+    public Lesson(Discipline discipline, Lector lector) {
+        this.discipline = discipline;
+        this.lector = lector;
+    }
 
     public Long getId() {
         return id;
@@ -44,11 +44,11 @@ public class Lesson {
         this.lector = lector;
     }
 
-    public Pupil[] getPupils() {
+    public Set<Pupil> getPupils() {
         return pupils;
     }
 
-    public void setPupils(Pupil[] pupils) {
+    public void setPupils(Set<Pupil> pupils) {
         this.pupils = pupils;
     }
 }

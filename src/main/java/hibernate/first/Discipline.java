@@ -7,9 +7,12 @@ public class Discipline {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
     @Column
     private String name;
+
+    public Discipline(String name) {
+        this.name = name;
+    }
 
     private Lector[] lectors;
 
@@ -27,13 +30,5 @@ public class Discipline {
 
     public void setLectors(Lector[] lectors) {
         this.lectors = lectors;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }

@@ -7,15 +7,18 @@ public abstract class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
     @Column
     private int age;
-
     @Column
     private String firstName;
-
     @Column
     private String secondName;
+
+    public Person(String firstName, String secondName, int age) {
+        this.firstName = firstName;
+        this.secondName = secondName;
+        this.age = age;
+    }
 
     public Long getId() {
         return id;
